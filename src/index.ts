@@ -14,7 +14,7 @@ const app = express();
     app.get('/random', randomRoute);
 
     app.all('*', (req, res) => {
-        res.redirect('https://jeti.app');
+        res.send('ok');
     })
 
 })();
