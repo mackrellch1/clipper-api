@@ -5,7 +5,7 @@ export default async function randomRoute(req: express.Request, res: express.Res
     const doc = await RecordingModel.aggregate([
         { 
             $match: {
-                clipDuration: {$gt: process.env.MIN_RANDOM_DURATION || 0}
+                clipDuration: {$gt: Number(process.env.MIN_RANDOM_DURATION || 0)}
             }
         },
         { 
