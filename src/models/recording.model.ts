@@ -7,6 +7,7 @@ const recordingSchema = new mongoose.Schema({
     guildId: String,
     date: Date,
     channelName: String,
+    clipDuration: Number,
     likes: Number
 });
 
