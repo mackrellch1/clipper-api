@@ -2,7 +2,8 @@ import * as express from 'express';
 import { RecordingModel } from '../models/recording.model';
 
 export default async function likeRoute(req: express.Request, res: express.Response) {
-    const recordingID = req.body.recordingID
+    console.log(req.params.id)
+    const recordingID = req.params.id
 
     if (!recordingID) {
         return res.sendStatus(400)
@@ -16,7 +17,7 @@ export default async function likeRoute(req: express.Request, res: express.Respo
         return res.sendStatus(404)
     }
 
-    recording.likes += 1
+    recording.likes = 1 + (recording.likes || 0)
 
     await recording.save()
     return res.sendStatus(200)
