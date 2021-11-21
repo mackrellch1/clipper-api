@@ -5,6 +5,7 @@ import randomRoute from './routes/random.route';
 import * as cors from 'cors';
 import * as bodyParser from 'body-parser';
 import likeRoute from './routes/like.route';
+import topLikesRoute from './routes/toplikes.route';
 
 const app = express();
 app.use(cors());
@@ -19,6 +20,7 @@ app.use(cors());
 
     app.get('/random', randomRoute);
     app.get('/like/:id', likeRoute)
+    app.get('/toplikes/:page', topLikesRoute)
     app.all('*', (req, res) => {
         res.send('ok');
     })

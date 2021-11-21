@@ -2,7 +2,6 @@ import * as express from 'express';
 import { RecordingModel } from '../models/recording.model';
 
 export default async function likeRoute(req: express.Request, res: express.Response) {
-    console.log(req.params.id)
     const recordingID = req.params.id
 
     if (!recordingID) {
