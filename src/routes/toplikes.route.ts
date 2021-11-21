@@ -5,7 +5,9 @@ export default async function topLikesRoute(req: express.Request, res: express.R
     const page = Number(req.params.page)
 
     const response = await RecordingModel
-        .find({})
+        .find({
+            likes: {$gt: 0}
+        })
         .limit(10)
         .skip(page*10)
         .sort({
